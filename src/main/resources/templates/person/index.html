@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="screen, projection"
+	href="../../bootstrap.css"
+	th:href="@{/css/bootstrap.css}"/>
+<link rel="stylesheet" type="text/css" href="../../font-awesome.css" th:href="@{/css/font-awesome.css}"/>	
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<h1>Product list</h1>
+	  
+	    <table class="table table-success table-sm table-bordered table-striped table-hover">
+	      <thead class="thead-dark">	
+	      <tr>
+	        <th scope="col">ID</th>
+	        <th scope="col">NAME</th>
+	        <th scope="col">AGE</th>
+	        <th scope="col">#</th>
+	      </tr>
+	      </thead>
+	      <tr th:each="person : ${persons}">
+	        <td th:text="${person.id}">1</td>
+	        <td th:text="${person.name}">Dmitriy</td>
+	        <td th:text="${person.age}">47</td>
+	        <td><a class="btn btn-sm btn-success" href="#">
+  				<i class="fa fa-fw fa-edit"></i>Edit</a>
+  			</td>
+	      </tr>
+	    </table>
+	    
+    </div>
+	
+</body>
+</html>
