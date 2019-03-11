@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="screen, projection"
+	href="../../bootstrap.css"
+	th:href="@{/css/bootstrap.css}"/>
+<link rel="stylesheet" type="text/css" href="../../font-awesome.css" th:href="@{/css/font-awesome.css}"/>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container fluid">
+		<h1>Sample TOEFL Structure and Written Expression Questions</h1>
+		<div th:each="question : ${questions}">
+			<p><span th:text="${question.id} + '.' + ${question.content}">1. Some question here...</span></p>
+			<li th:each="answer: ${question.answers}">
+			    <input type="radio" 
+			        th:field="*{type}"
+			        th:value="${answer}" />
+			    <label 
+			        th:for="${#ids.prev('type')}"
+			        th:text="${answer}"></label>
+  			</li>
+		</div>
+	</div>
+</body>
+</html>
