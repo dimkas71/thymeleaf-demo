@@ -17,7 +17,7 @@ public class QuestionController {
 		this.service = service;
 	}
 	
-	@GetMapping("/test")
+	@GetMapping("/questions")
 	public String test(Model model) {
 		model.addAttribute("questions", service.findAll());
 		return "question/list";

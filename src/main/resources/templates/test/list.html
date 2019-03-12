@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" media="screen, projection"
+	href="../../bootstrap.css"
+	th:href="@{/css/bootstrap.css}"/>
+<link rel="stylesheet" type="text/css" href="../../font-awesome.css" th:href="@{/css/font-awesome.css}"/>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container fluid">
+		<h1 th:text="${2 + 2} + ' =  4'">2 + 2 = 4</h1>
+		<form action="#" th:object="${email}" th:action="@{/test}"  method="post">
+		  <div class="form-group">
+		    <label for="exampleInputEmail1" >Email address</label>
+		    <input type="email" class="form-control" id="exampleInputEmail1" th:field="*{email}" aria-describedby="emailHelp" placeholder="Enter email">
+		    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" th:field="*{password}" id="exampleInputPassword1" placeholder="Password">
+		  </div>
+		  <div class="form-check">
+		    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+		    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+		  </div>
+		  
+		  <!-- Radio button -->
+			<div class="custom-control custom-radio">
+				<input type="radio" id="customRadio1" name="customRadio"
+					class="custom-control-input"> <label
+					class="custom-control-label" for="customRadio1">Toggle this
+					custom radio</label>
+			</div>
+			<div class="custom-control custom-radio">
+				<input type="radio" id="customRadio2" name="customRadio"
+					class="custom-control-input"> <label
+					class="custom-control-label" for="customRadio2">Or toggle
+					this other custom radio</label>
+			</div>
+
+
+
+			<button type="submit" class="btn btn-primary">Submit</button>
+		  
+		  
+		  
+		</form>
+		
+	</div>
+</body>
+</html>

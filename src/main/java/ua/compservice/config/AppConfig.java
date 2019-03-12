@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import ua.compservice.model.Answer;
+import ua.compservice.model.Email;
 import ua.compservice.model.Person;
 import ua.compservice.model.Question;
 import ua.compservice.repository.PersonRepository;
@@ -117,6 +118,9 @@ public class AppConfig implements CommandLineRunner {
 		
 	}
 	
-	
+	@Bean
+	Email email() {
+		return new Email("fake_email@gmail.com", "fakepassword");
+	}
 
 }
