@@ -11,16 +11,13 @@
 <body>
 	<div class="container fluid">
 		<h1>Sample TOEFL Structure and Written Expression Questions</h1>
-		<div th:each="question : ${questions}">
-			<p><span th:text="${question.id} + '.' + ${question.content}">1. Some question here...</span></p>
-			<li th:each="answer: ${question.answers}">
-			    <input type="radio" 
-			        th:field="*{type}"
-			        th:value="${answer}" />
-			    <label 
-			        th:for="${#ids.prev('type')}"
-			        th:text="${answer}"></label>
-  			</li>
+		
+		<div class="list-group" th:each="question : ${questions}">
+			<div class="list-group-item">
+				<p><span class="badge badge-pill badge-info" th:text="${question.id} + '.'">1.</span> <b class="badge badge-pill badge-secondary" th:text="${question.content}"></b>
+			
+			</div>		
+			
 		</div>
 	</div>
 </body>
