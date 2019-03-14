@@ -51,24 +51,22 @@ public class AppConfig implements CommandLineRunner {
 				1L,
 				" A three-foot octopus can crawl through a hole  ------ in diameter",
 				Arrays.asList(
-						new Answer("A", "than one inch less"),
-						new Answer("B", "less than one inch"),
-						new Answer("C", "one less inch than"),
-						new Answer("D", " tan less one inch ")
-						),
-				new Answer("B", "less than one inch")
+						new Answer("A", "than one inch less", false),
+						new Answer("B", "less than one inch", true),
+						new Answer("C", "one less inch than", false),
+						new Answer("D", " tan less one inch ", false)
+						)
 				));
 		
 		service.save(new Question(
 				2L,
 				"------adopted the decimal system of coinage in 1867.",
 				Arrays.asList(
-						new Answer("A", "Canada"),
-						new Answer("B", "When Canada"),
-						new Answer("C", "Canada, which"),
-						new Answer("D", "There was Canada ")
-						),
-				new Answer("A", "Canada")
+						new Answer("A", "Canada", true),
+						new Answer("B", "When Canada",false),
+						new Answer("C", "Canada, which", false),
+						new Answer("D", "There was Canada ", false)
+						)
 				));
 		service.save(new Question(
 				3L,
@@ -76,12 +74,11 @@ public class AppConfig implements CommandLineRunner {
 				"  are constitutionally elected by a broad spectrum" + 
 				"  of the population. ",
 				Arrays.asList(
-						new Answer("A", "who they compose"),
-						new Answer("B", "who compose"),
-						new Answer("C", "had compose"),
-						new Answer("D", "compose")
-						),
-				new Answer("B", "who compose")
+						new Answer("A", "who they compose", false),
+						new Answer("B", "who compose", true),
+						new Answer("C", "had compose", false),
+						new Answer("D", "compose", false)
+						)
 				));
 		service.save(new Question(
 				4L,
@@ -90,23 +87,21 @@ public class AppConfig implements CommandLineRunner {
 				"  ------where actors can work together without the" + 
 				"  pressure of commercial production. ",
 				Arrays.asList(
-						new Answer("A", "a place and"),
-						new Answer("B", "a place"),
-						new Answer("C", "so that a place"),
-						new Answer("D", "a place is")
-						),
-				new Answer("B", "a place")
+						new Answer("A", "a place and", false),
+						new Answer("B", "a place", true),
+						new Answer("C", "so that a place", false),
+						new Answer("D", "a place is", false)
+						)
 				));
 		service.save(new Question(
 				5L,
 				"------ that life began billions of years ago in the water. ",
 				Arrays.asList(
-						new Answer("A", "It is believed "),
-						new Answer("B", "In the belief "),
-						new Answer("C", "The belief"),
-						new Answer("D", "Believing ")
-						),
-				new Answer("A", "It is believed ")
+						new Answer("A", "It is believed ", true),
+						new Answer("B", "In the belief ", false),
+						new Answer("C", "The belief", false),
+						new Answer("D", "Believing ", false)
+						)
 				));
 		
 		service.findAll()

@@ -15,7 +15,12 @@
 		<div class="list-group" th:each="question : ${questions}">
 			<div class="list-group-item">
 				<p><span class="badge badge-pill badge-info" th:text="${question.id} + '.'">1.</span> <b class="badge badge-pill badge-secondary" th:text="${question.content}"></b>
-			
+				<div class="form-check form-check-inline" th:each="answer : ${question.answers}">
+					<div class="custom-control custom-radio custom-control-inline">
+  						<input type="radio" th:id="${question.id} + ${answer.id}" th:name="${question.id}" class="custom-control-input">
+  						<label class="custom-control-label" th:for="${question.id} + ${answer.id}" th:text="'(' + ${answer.id} + ') ' + ${answer.description}">Canada</label>
+					</div>
+				</div>
 			</div>		
 			
 		</div>

@@ -10,7 +10,8 @@ import lombok.NoArgsConstructor;
 public class Answer {
 	
 	private String id;
-	private String content;
+	private String description;
+	private boolean isCorrect;
 	
 	
 }

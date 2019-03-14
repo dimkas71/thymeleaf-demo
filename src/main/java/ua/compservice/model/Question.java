@@ -14,6 +14,5 @@ public class Question {
 	private Long id;
 	private String content;
 	private List<Answer> answers;
-	private Answer correctAnswer;
 	
 }
