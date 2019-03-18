@@ -11,7 +11,7 @@ public class Answer {
 	
 	private String id;
 	private String description;
-	private boolean isCorrect;
+	private boolean correct;
 	
 	
 }

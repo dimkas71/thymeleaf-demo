@@ -1,6 +1,10 @@
 package ua.compservice.config;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +17,9 @@ import ua.compservice.model.Answer;
 import ua.compservice.model.Email;
 import ua.compservice.model.Person;
 import ua.compservice.model.Question;
+import ua.compservice.model.TestCase;
 import ua.compservice.repository.PersonRepository;
 import ua.compservice.service.QuestionService;
-import ua.compservice.service.QuestionServiceImpl;
 
 @Component
 public class AppConfig implements CommandLineRunner {
@@ -25,6 +29,8 @@ public class AppConfig implements CommandLineRunner {
 	private PersonRepository repos;
 	
 	private QuestionService service;
+	
+	private TestCase testCase;
 	
 	@Autowired
 	public AppConfig(PersonRepository repos, QuestionService service) {
@@ -111,6 +117,34 @@ public class AppConfig implements CommandLineRunner {
 		
 		logger.info("{}", service.findById(1L).get());
 		
+		//Initialize TestCase
+		
+		testCase = new TestCase();
+		
+		Map<Question, List<Answer>> map = new HashMap<>();
+		
+		service.findAll()
+			.stream()
+			.forEach(q -> {
+				List<Answer> correctAnswers = q.getAnswers().stream().filter(a -> a.isCorrect()).collect(Collectors.toList());
+				map.put(q, correctAnswers);
+			});
+		
+		testCase.setId(1L);
+		testCase.setMap(map);
+		testCase.setPersent(0.0f);
+		
+		logger.info("{}",testCase);
+		
+		
+		
+		
+		
+	}
+	
+	@Bean
+	TestCase testCase() {
+		return this.testCase;
 	}
 	
 	@Bean

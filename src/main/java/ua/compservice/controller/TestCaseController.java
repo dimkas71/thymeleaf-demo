@@ -10,29 +10,31 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import ua.compservice.model.Email;
+import ua.compservice.model.TestCase;
 
 @Controller
 public class TestCaseController {
 	
 	private static Logger logger = LoggerFactory.getLogger(TestCaseController.class);
 	
-	@Autowired
-	private Email email;
 	
-	public TestCaseController(Email email) {
-		this.email = email;
+	private TestCase testCase;
+	
+	@Autowired
+	public TestCaseController(TestCase aTestCase) {
+		this.testCase = aTestCase;
 	}
 	
 	@GetMapping("/test")
 	public String test(Model model) {
-		logger.info("Email {}", this.email);
-		model.addAttribute("email", this.email);
+		logger.info("TestCase {}", this.testCase);
+		model.addAttribute("testCase", this.testCase);
 		return "test/list";
 	}
 
 	@PostMapping("/test")
-	public String edit(@ModelAttribute("email") Email email) {
-		logger.info("Returned email {}", email);
+	public String edit(@ModelAttribute("testCase") TestCase testCase) {
+		logger.info("Returned email {}", testCase);
 		return "person/list"; 
 	}
 		
